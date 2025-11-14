@@ -1,3 +1,6 @@
+/* ===== 導入 Google Fonts (設計感的來源) ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap');
+
 /* ===== 基礎設定與變數 ===== */
 :root {
     /* 顏色 (科技感深色主題) */
@@ -8,9 +11,9 @@
     --color-primary: #30a8f0;    /* 點綴色 (電光藍) */
     --color-border: #30363d;     /* 邊框色 */
     
-    /* 字體 */
-    --font-primary: 'Noto Sans TC', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    --font-code: 'Roboto Mono', 'Source Code Pro', monospace;
+    /* 字體 (已更新) */
+    --font-primary: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-code: 'Roboto Mono', monospace;
 }
 
 /* --- 基礎重設 (Reset) --- */
@@ -29,28 +32,41 @@ html {
 body {
     background-color: var(--color-bg);
     color: var(--color-text);
-    font-family: var(--font-primary);
-    line-height: 1.6;
+    font-family: var(--font-primary); /* 套用新字體 */
+    line-height: 1.7; /* 增加行高以提升易讀性 */
 }
 
 h1, h2, h3, h4, h5, h6 {
     color: var(--color-heading);
-    font-weight: 600;
+    font-family: var(--font-primary); /* 套用新字體 */
+    font-weight: 700;
     margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
 }
 
 h2 {
     font-size: 2.5rem;
     padding-bottom: 1rem;
-    border-bottom: 2px solid var(--color-primary); /* 標題底線, 增加設計感 */
-    display: inline-block; /* 讓底線只跟著文字長度 */
-    margin-bottom: 2rem;
+    border-bottom: 3px solid var(--color-primary); /* 標題底線 */
+    display: inline-block; 
+    margin-bottom: 3rem; /* 增加標題和內容的間距 */
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+p {
+    margin-bottom: 1.25rem;
 }
 
 a {
     color: var(--color-primary);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 a:hover {
@@ -94,8 +110,6 @@ ul {
     backdrop-filter: blur(10px); /* 毛玻璃效果 (科技感) */
     border-bottom: 1px solid var(--color-border);
     padding: 1rem 0;
-    
-    /* 關鍵：固定在頂部 */
     position: sticky;
     top: 0;
     width: 100%;
@@ -122,10 +136,12 @@ ul {
 .nav-menu a {
     color: var(--color-text);
     font-weight: 500;
+    font-size: 1rem;
+    padding: 0.5rem;
 }
 
 .nav-menu a:hover,
-.nav-menu a.active { /* 未來可用 JS 加上 active class */
+.nav-menu a.active {
     color: var(--color-primary);
 }
 
@@ -134,19 +150,16 @@ ul {
     margin-left: 2rem;
 }
 
-.lang-switcher span { /* 目前的語言 */
+.lang-switcher span { 
     color: var(--color-heading);
     font-weight: 700;
 }
 
 /* ===== Hero 區塊 ===== */
-#hero h1 {
-    font-size: 3.5rem;
-}
 #hero .subtitle {
     font-size: 1.25rem;
     color: var(--color-text);
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem; /* 增加間距 */
 }
 .cta-button {
     background-color: var(--color-primary);
@@ -160,8 +173,67 @@ ul {
 .cta-button:hover {
     background-color: var(--color-heading);
     color: var(--color-bg);
-    transform: translateY(-2px);
+    transform: translateY(-3px); /* 懸停時輕微上浮 */
+    box-shadow: 0 5px 15px rgba(48, 168, 240, 0.2);
 }
+
+/* ===== 2. 關於我 (About) - 新增樣式 ===== */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 3rem; /* 圖片和文字的間距 */
+}
+
+.about-image {
+    flex: 0 0 300px; /* 固定寬度 300px */
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%; /* 關鍵：圓形照片 */
+    border: 5px solid var(--color-border);
+    padding: 5px;
+    background-color: var(--color-bg-alt);
+    transition: all 0.3s ease;
+}
+
+.about-image img:hover {
+    border-color: var(--color-primary); /* 懸停時邊框變色 */
+    transform: scale(1.03);
+}
+
+.about-text {
+    flex: 1; /* 佔用剩餘所有空間 */
+}
+
+.about-text h3 {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.about-text p {
+    font-size: 1.05rem;
+    color: var(--color-text);
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem; /* 圖示間距 */
+    margin-top: 2rem;
+}
+
+.social-links a {
+    color: var(--color-text);
+    font-size: 2.25rem; /* 圖示大小 */
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--color-primary);
+    transform: translateY(-5px); /* 懸停時上浮 */
+}
+
 
 /* ===== 頁腳 (Footer) ===== */
 footer {
