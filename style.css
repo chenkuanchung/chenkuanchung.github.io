@@ -365,3 +365,181 @@ ul {
         color: var(--color-bg);
     }
 }
+
+/* ===== [新] Hero Section (首屏) ===== */
+
+#hero {
+    /* * 使用 padding-top 來將 hero 內容推到 navbar 下方
+     * 使用 vh (viewport height) 讓它有足夠的高度感
+     */
+    padding: 6rem 0;
+    min-height: 90vh; /* 確保在多數螢幕上能填滿首屏 */
+    display: flex;
+    align-items: center;
+    position: relative; /* 關鍵：為了讓光暈定位 */
+    overflow: hidden; /* 關鍵：裁切掉多餘的光暈 */
+}
+
+/* * 🎨 關鍵的「光暈效果」
+ * 我們使用 ::before 偽元素在背景中插入一個徑向漸層
+ */
+#hero::before {
+    content: '';
+    position: absolute;
+    z-index: -1; /* 把它放到內容的後面 */
+    
+    /* 讓它在中間 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    
+    /* 製作一個巨大的、以主題色為中心的漸層 */
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(
+        circle, 
+        rgba(48, 168, 240, 0.15), /* 中心：使用 15% 透明度的主題藍 */
+        transparent 60%           /* 60% 以外：完全透明 */
+    );
+    filter: blur(50px); /* 讓邊緣更加柔和 */
+}
+
+.hero-content {
+    /* 使用 Grid 實現「左/右」佈局 */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 左右各佔 50% */
+    align-items: center; /* 垂直置中 */
+    gap: 3rem; /* 左右間距 */
+}
+
+/* --- Hero 左側 (動畫) --- */
+.hero-visual video {
+    width: 100%;
+    max-width: 500px; /* 限制最大寬度，避免動畫太大 */
+    height: auto;
+    border-radius: 15px; /* 增加圓角，提升質感 */
+    border: 1px solid var(--color-border); /* 加上主題邊框 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* 加上陰影 */
+}
+
+/* --- Hero 右側 (文字) --- */
+.hero-text h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-primary); /* 使用主題藍色 */
+    margin-bottom: 0.5rem;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem; /* 沿用你已定義的 H1 尺寸 */
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+}
+
+/* 標題中的高亮文字 */
+.hero-text .highlight {
+    color: var(--color-primary);
+    /* (可選) 增加一點漸層感 */
+    /* background: linear-gradient(90deg, #30a8f0, #30e0f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+}
+
+.hero-description {
+    font-size: 1.15rem; /* 讓描述文字比內文大一點 */
+    color: var(--color-text); /* 使用次要文字顏色 */
+    margin-bottom: 2.5rem;
+    max-width: 600px; /* 避免文字行太長 */
+}
+
+/* --- Hero 按鈕 (我們需要定義新的按鈕樣式) --- */
+.hero-buttons {
+    display: flex;
+    gap: 1rem; /* 按鈕間距 */
+}
+
+/* 基本按鈕樣式 (共用) */
+.btn {
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* 主要按鈕 (填滿) */
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-bg); /* 文字用深色背景 */
+}
+
+.btn-primary:hover {
+    filter: brightness(1.15); /* 讓按鈕變亮 */
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 20px rgba(48, 168, 240, 0.2);
+}
+
+/* 次要按鈕 (外框) */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    border-color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+
+/* --- 響應式設計 (RWD for Hero) --- */
+@media (max-width: 992px) {
+    #hero {
+        padding: 4rem 0; /* 手機版上下 padding 縮小 */
+        min-height: auto; /* 移除最小高度限制 */
+        text-align: center; /* 讓所有內容置中 */
+    }
+    
+    .hero-content {
+        grid-template-columns: 1fr; /* 關鍵：改為單欄，垂直堆疊 */
+        gap: 2.5rem;
+    }
+
+    .hero-text {
+        /* * 關鍵：在手機上，我們希望文字在上面，動畫在下面 
+         * 透過 order 屬性調整順序
+        */
+        order: 1; 
+    }
+
+    .hero-visual {
+        order: 2;
+        display: flex;
+        justify-content: center; /* 讓動畫在中間 */
+    }
+
+    .hero-visual video {
+        max-width: 80%; /* 讓影片不要佔滿全寬 */
+    }
+    
+    .hero-text h1 {
+        font-size: 2.5rem; /* 手機版標題縮小 */
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        justify-content: center; /* 讓按鈕置中 */
+        flex-direction: column; /* 垂直排列 */
+        gap: 0.8rem;
+    }
+}
