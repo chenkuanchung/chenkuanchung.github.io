@@ -11,7 +11,7 @@
     --color-primary: #30a8f0;    /* 點綴色 (電光藍) */
     --color-border: #30363d;     /* 邊框色 */
     
-    /* 字體 (已更新) */
+    /* 字體 */
     --font-primary: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --font-code: 'Roboto Mono', monospace;
 }
@@ -24,7 +24,6 @@
 }
 
 html {
-    /* 關鍵：啟用平滑滾動 */
     scroll-behavior: smooth;
     font-size: 16px;
 }
@@ -32,32 +31,20 @@ html {
 body {
     background-color: var(--color-bg);
     color: var(--color-text);
-    font-family: var(--font-primary); /* 套用新字體 */
-    line-height: 1.7; /* 增加行高以提升易讀性 */
+    font-family: var(--font-primary);
+    line-height: 1.7;
 }
 
 h1, h2, h3, h4, h5, h6 {
     color: var(--color-heading);
-    font-family: var(--font-primary); /* 套用新字體 */
+    font-family: var(--font-primary);
     font-weight: 700;
     margin-bottom: 1rem;
 }
 
-h1 {
-    font-size: 3.5rem;
-}
-
-h2 {
-    font-size: 2.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 3px solid var(--color-primary); /* 標題底線 */
-    display: inline-block; 
-    margin-bottom: 3rem; /* 增加標題和內容的間距 */
-}
-
-h3 {
-    font-size: 1.75rem;
-}
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.75rem; }
 
 p {
     margin-bottom: 1.25rem;
@@ -84,33 +71,13 @@ ul {
     margin: 0 auto;
 }
 
-.content-section {
-    padding: 6rem 0; /* 上下留白, 創造簡約感 */
-}
-
-/* 交錯區塊的背景色 */
-.alt-bg {
-    background-color: var(--color-bg-alt);
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
-}
-
-.full-height {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-top: 80px; /* 避開導航列 */
-}
-
 /* ===== 導航列 (Navbar) ===== */
 .navbar {
     background-color: rgba(13, 17, 23, 0.85); /* 帶透明度的背景 */
     backdrop-filter: blur(10px); /* 毛玻璃效果 (科技感) */
     border-bottom: 1px solid var(--color-border);
     padding: 1rem 0;
-    position: sticky;
+    position: sticky; /* 關鍵：黏在頂部 */
     top: 0;
     width: 100%;
     z-index: 100;
@@ -128,118 +95,273 @@ ul {
     color: var(--color-heading);
 }
 
+/* ===== 導航列 Logo 圖片樣式 ===== */
+.nav-logo img {
+    height: 50px; /* 設定圖片高度，你可以根據需要調整 */
+    width: auto;  /* 寬度自動調整，保持圖片比例 */
+    display: block; /* 確保圖片能正確置中或對齊 */
+}
+
+/* 響應式調整：在手機版時，如果 Logo 太大，可以縮小 */
+@media (max-width: 992px) {
+    .nav-logo img {
+        height: 35px; /* 手機版時稍微縮小 */
+    }
+}
+
 .nav-menu {
     display: flex;
     gap: 1.5rem;
 }
 
+/* --- 提升 Navbar 質感 (連結樣式) --- */
 .nav-menu a {
     color: var(--color-text);
     font-weight: 500;
     font-size: 1rem;
     padding: 0.5rem;
+    position: relative; /* 關鍵：為了讓 ::after 偽元素定位 */
+    text-decoration: none; /* 移除預設底線 */
+    padding-bottom: 8px; /* 增加一點空間給底線 */
+    transition: color 0.3s ease; /* 文字顏色變化的 transition */
 }
 
-.nav-menu a:hover,
+/* 建立一個隱藏的底線 */
+.nav-menu a::after {
+    content: ''; /* 偽元素必須的 */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; /* 關鍵：預設寬度為 0 (隱藏) */
+    height: 2px; /* 底線的高度 */
+    background-color: var(--color-primary); /* 使用我們的科技藍 */
+    transition: width 0.3s ease-in-out; /* 關鍵：寬度變化的動畫 */
+}
+
+/* 當滑鼠懸停 (hover) 時，將底線寬度變成 100% */
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* 滑鼠懸停時，文字也輕微變亮 */
+.nav-menu a:hover {
+    color: var(--color-heading);
+}
+
+/* "目前" 所在區塊的連結樣式 (未來用 JS 加上) */
 .nav-menu a.active {
     color: var(--color-primary);
-}
-
-.lang-switcher {
-    color: var(--color-text);
-    margin-left: 2rem;
-}
-
-.lang-switcher span { 
-    color: var(--color-heading);
     font-weight: 700;
 }
 
-/* ===== Hero 區塊 ===== */
-#hero .subtitle {
-    font-size: 1.25rem;
-    color: var(--color-text);
-    margin-bottom: 2.5rem; /* 增加間距 */
+/* --- 修正 Navbar 排版 (nav 標籤) --- */
+.navbar nav {
+    display: flex; /* 讓內部的 .nav-menu 和 .lang-dropdown 水平並排 */
+    align-items: center; /* 讓它們垂直置中對齊 */
 }
-.cta-button {
-    background-color: var(--color-primary);
-    color: var(--color-bg);
-    padding: 0.75rem 1.5rem;
-    border-radius: 5px;
-    font-weight: 700;
+
+/* ===== 語言切換選單 (Language Dropdown) ===== */
+.lang-dropdown {
+    position: relative; /* 關鍵：讓子選單可以相對於此定位 */
+    margin-left: 2rem; /* 與主導航選單保持距離 */
+}
+
+.lang-dropbtn {
+    background-color: transparent;
+    color: var(--color-text);
+    font-family: var(--font-primary);
     font-size: 1rem;
-    transition: all 0.3s ease;
-}
-.cta-button:hover {
-    background-color: var(--color-heading);
-    color: var(--color-bg);
-    transform: translateY(-3px); /* 懸停時輕微上浮 */
-    box-shadow: 0 5px 15px rgba(48, 168, 240, 0.2);
-}
-
-/* ===== 2. 關於我 (About) - 新增樣式 ===== */
-.about-container {
+    font-weight: 500;
+    padding: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    
+    /* 使用 Flexbox 來對齊圖示和文字 */
     display: flex;
     align-items: center;
-    gap: 3rem; /* 圖片和文字的間距 */
+    gap: 0.5rem; /* 在圖示和文字間增加一點空隙 */
 }
 
-.about-image {
-    flex: 0 0 300px; /* 固定寬度 300px */
+/* 滑鼠懸停效果 (同主選單) */
+.lang-dropbtn:hover,
+.lang-dropbtn:focus { /* 增加 :focus 提升可訪問性 */
+    color: var(--color-heading);
+    outline: none; /* 移除點擊時的預設外框 */
 }
 
-.about-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%; /* 關鍵：圓形照片 */
-    border: 5px solid var(--color-border);
-    padding: 5px;
-    background-color: var(--color-bg-alt);
-    transition: all 0.3s ease;
+/* 下拉式選單的"內容" (放置連結的地方) */
+.lang-dropdown-content {
+    display: none; /* 關鍵：預設隱藏 */
+    position: absolute;
+    top: 100%; /* 顯示在按鈕正下方 */
+    right: 0; /* 靠右對齊 */
+    background-color: var(--color-bg-alt); /* 使用卡片背景色 */
+    min-width: 180px; /* 最小寬度 */
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 增加陰影以突顯層次 */
+    z-index: 101; /* 確保在導航列之上 */
+    overflow: hidden; /* 確保子項目的圓角裁切正確 */
 }
 
-.about-image img:hover {
-    border-color: var(--color-primary); /* 懸停時邊框變色 */
-    transform: scale(1.03);
-}
-
-.about-text {
-    flex: 1; /* 佔用剩餘所有空間 */
-}
-
-.about-text h3 {
-    color: var(--color-primary);
-    font-weight: 600;
-}
-
-.about-text p {
-    font-size: 1.05rem;
+/* 選單中的連結 */
+.lang-dropdown-content a {
     color: var(--color-text);
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block; /* 讓連結填滿寬度 */
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap; /* 確保 "中文 (繁體)" 不會換行 */
 }
 
-.social-links {
-    display: flex;
-    gap: 1.5rem; /* 圖示間距 */
-    margin-top: 2rem;
+/* 連結的滑鼠懸停效果 */
+.lang-dropdown-content a:hover {
+    background-color: var(--color-primary); /* 科技藍背景 */
+    color: var(--color-bg); /* 文字反白 */
 }
 
-.social-links a {
-    color: var(--color-text);
-    font-size: 2.25rem; /* 圖示大小 */
-    transition: all 0.3s ease;
-}
-
-.social-links a:hover {
+/* "目前" 語言的樣式 */
+.lang-dropdown-content a.active {
     color: var(--color-primary);
-    transform: translateY(-5px); /* 懸停時上浮 */
+    font-weight: 700;
+    background-color: rgba(48, 168, 240, 0.1); /* 給 active 一個淡淡的背景色 */
+}
+
+/* 關鍵：當 JavaScript 加上 .show class 時，顯示選單 */
+.lang-dropdown-content.show {
+    display: block;
 }
 
 
-/* ===== 頁腳 (Footer) ===== */
-footer {
-    padding: 2rem 0;
-    text-align: center;
-    background-color: var(--color-bg-alt);
-    border-top: 1px solid var(--color-border);
-    font-size: 0.9rem;
+/* ===== 響應式設計 (RWD) - 漢堡選單 ===== */
+
+/* --- 漢堡按鈕的樣式 (預設隱藏) --- */
+.nav-toggle {
+    display: none; /* 電腦版時隱藏 */
+    background: transparent;
+    border: none;
+    color: var(--color-heading);
+    font-size: 1.5rem; /* 加大圖示, 方便點擊 */
+    cursor: pointer;
+    z-index: 1001; /* 確保在選單之上 */
+    padding: 0.5rem; /* 增加點擊範圍 */
+}
+
+/* 漢堡按鈕中的 關閉(X)圖示 預設隱藏 */
+.nav-toggle .fa-times {
+    display: none;
+}
+
+/* --- 當漢堡選單被觸發時 (JS 會為 <nav> 加上 .nav-active) --- */
+
+/* 顯示 關閉(X)圖示 */
+.navbar nav.nav-active .nav-toggle .fa-times {
+    display: block;
+}
+
+/* 隱藏 漢堡(三)圖示 */
+.navbar nav.nav-active .nav-toggle .fa-bars {
+    display: none;
+}
+
+
+/* --- 媒體查詢：當螢幕寬度小於 992px 時 (平板與手機) --- */
+@media (max-width: 992px) {
+
+    /* 1. 顯示漢堡按鈕 */
+    .nav-toggle {
+        display: block;
+    }
+    
+    /* 2. 重新定義 <nav> 容器 (它變成彈出式選單) */
+	.navbar nav {
+		position: absolute;
+		top: 100%; /* 抓取 .navbar 的底部 (65px) */
+		left: 0;
+		width: 100%;
+
+		/* 轉為垂直排列 */
+		flex-direction: column;
+		align-items: center; /* 讓選項置中 */
+
+		/* 外觀 */
+		background-color: var(--color-bg-alt);
+		border-bottom: 1px solid var(--color-border);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+		/* 關鍵：預設不顯示 (使用 transform 準備做動畫) */
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-10px); /* 從上面一點點的位置滑入 */
+		transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+	}
+
+    /* 3. 主選單 (ul) 改為垂直 */
+    .nav-menu {
+        flex-direction: column;
+        align-items: center; /* 讓選項置中 */
+        width: 100%; /* 確保 ul 填滿 nav */
+    }
+
+    /* 4. 語言選單 (div) 也改為垂直 */
+	.lang-dropdown {
+		margin-left: 0;
+		width: 100%;
+		border-top: 1px dashed var(--color-border); /* 用虛線與主選單分隔 */
+	}
+    
+    /* 5. 手機版的語言按鈕樣式 */
+    .lang-dropbtn {
+        justify-content: center; /* 文字置中 */
+        width: 100%;
+        padding: 1rem 0;
+    }
+    
+    /* 6. 手機版的語言子選單 (不要彈出，改為直接展開) */
+    .lang-dropdown-content {
+        position: relative; /* 改為相對定位，在原地展開 */
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        background-color: var(--color-bg); /* 用更深的背景色區分 */
+    }
+
+    .lang-dropdown-content a {
+        text-align: center;
+    }
+
+    /* 7. 觸發漢堡選單 (關鍵) */
+	.navbar nav.nav-active {
+		display: flex; /* 確保 display:flex 優先級 */
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+    
+    /* 8. 手機版選單連結樣式 */
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu a {
+        display: block; /* 讓連結填滿整個 li */
+        width: 100%;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--color-border);
+    }
+    
+    /* 移除電腦版的 hover 底線動畫 */
+    .nav-menu a::after {
+        display: none;
+    }
+    
+    /* 手機版改用不同的 hover 效果 */
+    .nav-menu a:hover {
+        background-color: var(--color-primary);
+        color: var(--color-bg);
+    }
 }

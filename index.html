@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>陳冠中 - AI | Big Data | Technology</title>
+    <title>AI-ing｜正在AI中</title>
+    
     <link rel="stylesheet" href="style.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -13,116 +14,46 @@
 <body>
 
     <header class="navbar">
-        <div class="container">
-            <a href="#hero" class="nav-logo">首 頁</a>
+		<div class="container">
+			
+            <a href="#hero" class="nav-logo">
+				<img src="img/logo_rmbg.png" alt="AI.bing Logo">
+			</a>
+			
             <nav>
                 <ul class="nav-menu">
                     <li><a href="#about">關於我</a></li>
-                    <li><a href="#education">學歷</a></li>
-                    <li><a href="#experience">工作經歷</a></li>
-                    <li><a href="#training">專業訓練</a></li>
-                    <li><a href="#certifications">證照</a></li>
-                    <li><a href="#skills">技能</a></li>
-                    <li><a href="#projects">專案</a></li>
-                    <li><a href="#contact">聯絡</a></li>
+                    <li><a href="#education">學 歷</a></li>
+                    <li><a href="#experience">經 歷</a></li>
+                    <li><a href="#skills">技 能</a></li>
+                    <li><a href="#projects">專 案</a></li>
+                    <li><a href="#contact">聯 繫</a></li>
                 </ul>
-                <div class="lang-switcher">
-                    <span>中</span> | <a href="en.html">EN</a>
+                
+                <div class="lang-dropdown">
+                    <button class="lang-dropbtn">
+                        <i class="fas fa-globe"></i> 語言 (Language)
+                        <i class="fas fa-caret-down"></i>
+                    </button>
+                    <div class="lang-dropdown-content" id="langDropdownContent">
+                        <a href="index.html" class="active">中文 (繁體)</a>
+                        <a href="en.html">English</a>
+                    </div>
                 </div>
             </nav>
-        </div>
-    </header>
 
-    <main>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <i class="fas fa-bars"></i>  <i class="fas fa-times"></i> </button>
 
-        <section id="hero" class="full-height">
-            <div class="container">
-                <h1>Hello! 我是 陳冠中!</h1>
-                <p class="subtitle">專注於 數據分析 與 人工智慧應用 的工程師</p>
-                <a href="#projects" class="cta-button">查看我的專案</a>
-            </div>
-        </section>
-
-        <section id="about" class="content-section">
-            <div class="container">
-                <h2>關於我</h2>
-                
-                <div class="about-container">
-                    <div class="about-image">
-                        <img src="Gemini_Generated_Image_20251014.png" alt="陳冠中 形象照">
-                    </div>
-                    
-                    <div class="about-text">
-                        <h3>機器學習工程師 & 數據分析師</h3>
-                        <p>
-                            你好！我畢業於陽明交通大學科技管理研究所，主修機器學習。我具備 <strong>6 年以上科技產業實務經驗</strong>，並完成了資策會 <strong>600 小時</strong>的巨量資料分析培訓。
-                        </p>
-                        <p>
-                            我擅長跨部門溝通、獨立開發，並能快速鑽研新技術。目前專注於數據分析與 AI 應用，熟練使用 Python、SQL、Scikit-learn、PyTorch 及 LLM 相關技術。
-                        </p>
-                        
-                        <div class="social-links">
-                            <a href="https://github.com/chenkuanchung" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="https://medium.com/@chenkuanchung810905" target="_blank" title="Medium"><i class="fab fa-medium"></i></a>
-                            <a href="https://huggingface.co/Andyhahaho" target="_blank" title="Hugging Face"><i class="fa-brands fa-hugging-face"></i></a>
-                            <a href="https://www.kaggle.com/chenkuanchung" target="_blank" title="Kaggle"><i class="fab fa-kaggle"></i></a>
-                            <a href="https://www.facebook.com/kuanchung.chen.37" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </section>
-
-        <section id="education" class="content-section alt-bg">
-            <div class="container">
-                <h2>學歷</h2>
-                </div>
-        </section>
-
-        <section id="experience" class="content-section">
-            <div class="container">
-                <h2>工作經歷</h2>
-                </div>
-        </section>
-
-        <section id="training" class="content-section alt-bg">
-            <div class="container">
-                <h2>專業訓練</h2>
-                </div>
-        </section>
-
-        <section id="certifications" class="content-section">
-            <div class="container">
-                <h2>認證 / 證照</h2>
-                </div>
-        </section>
-
-        <section id="skills" class="content-section alt-bg">
-            <div class="container">
-                <h2>專業技能</h2>
-                </div>
-        </section>
-
-        <section id="projects" class="content-section">
-            <div class="container">
-                <h2>專案作品</h2>
-                </div>
-        </section>
-
-        <section id="contact" class="content-section alt-bg">
-            <div class="container">
-                <h2>聯絡我</h2>
-                </div>
-        </section>
-
-    </main>
-
-    <footer>
+		</div>
+	</header>
+    <main style="padding: 4rem 0; height: 200vh;">
         <div class="container">
-            <p>&copy; 2025 陳冠中. All Rights Reserved.</p>
+            <h1>這裡是頁面內容</h1>
+            <p>請上下滾動頁面，測試導航列的 'sticky' 效果。</p>
+            <p>也請縮放你的瀏覽器視窗，測試 RWD 漢堡選單是否正常運作。</p>
         </div>
-    </footer>
+    </main>
 
 </body>
 </html>
