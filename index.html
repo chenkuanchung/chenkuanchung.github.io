@@ -11,7 +11,7 @@
     
     <script defer src="script.js"></script>
 </head>
-<body>
+<body data-theme="light">
 
     <header class="navbar">
 		<div class="container">
@@ -26,10 +26,16 @@
                     <li><a href="#education">學 歷</a></li>
                     <li><a href="#experience">經 歷</a></li>
                     <li><a href="#skills">技 能</a></li>
+                    <li><a href="#certifications">證 照</a></li>
+                    <li><a href="#training">培 訓</a></li>
                     <li><a href="#projects">專 案</a></li>
                     <li><a href="#contact">聯 繫</a></li>
                 </ul>
                 
+				<button id="theme-toggle" class="theme-toggle-btn" aria-label="切換深淺色主題" title="切換主題">
+                    <i class="fas fa-moon"></i> 
+                </button>
+				
                 <div class="lang-dropdown">
                     <button class="lang-dropbtn">
                         <i class="fas fa-globe"></i> 語言 (Language)
@@ -85,20 +91,30 @@
                     關於我 <span>About</span>
                 </h2>
                 
-                <div class="about-card">
-                    <h3 class="about-subtitle">
-                        從數據中挖掘洞見，用 AI 創造真實價值。
-                    </h3>
+                <div class="about-card-split">
                     
-                    <p>你好，我是 Andy (陳冠中)，一名專注於人工智慧應用與大數據分析的 AI Application Engineer。</p>
+                    <div class="about-image-column">
+                        <div class="about-image-wrapper">
+                            <img src="img/profile.jpg" alt="Andy Chen 陳冠中 生活照">
+                        </div>
+                    </div>
                     
-                    <p>我的職涯歷程是一段跨領域的成長之旅。早期我曾在台灣微軟負責供應鏈的風險管理與物料決策，在深刻體會到數據的影響力後，我於離開微軟之際，投入了資策會 600 小時的巨量資料分析培訓，正式轉職為數據工程師。隨後，我以派遣工程師的身份，先後進入聯發科與台積電服務，在最嚴格的產業環境中，累積了扎實的大型企業數據管線（ETL）建置與系統分析實戰經驗。</p>
-                    
-                    <p>為了進一步深化 AI 領域的專業，我進入陽明交大科技管理研究所在職專班主修機器學習，並參與了「AI 新秀計畫」。這段兼具技術深鑽與商業思維的歷程，讓我具備了「懂技術，也懂商業邏輯」的獨特優勢。</p>
-                    
-                    <p>在技術領域，我熱衷於開發高效、可擴展的解決方案。無論是運用電腦視覺技術、開發基於 LLMOps 與 Multi-Agent 架構的 AI 應用，還是建置自動化測試框架，我都能獨立完成端到端 (End-to-End) 的程式開發。同時，我也擅長在多變的專案環境中，扮演跨部門溝通的橋樑，確保技術能精準解決真實的商業痛點。</p>
-                    
-                    <p>離開程式碼與終端機的視窗後，我喜歡透過旅行去探索世界不同的角落，也享受專研手沖咖啡風味的寧靜時光。對我來說，無論是沖煮一杯好咖啡，還是寫出一段優雅的程式碼，都需要同樣的專注與對細節的講究。</p>
+                    <div class="about-text-column">
+                        <h3 class="about-subtitle">
+                            從數據中挖掘洞見，用 AI 創造真實價值。
+                        </h3>
+                        
+                        <p>你好，我是 陳冠中 (Andy)，一名專注於人工智慧應用與大數據分析的 AI 應用工程師。</p>
+                        
+                        <p>我的職涯歷程是一段跨領域的成長之旅。早期我曾在台灣微軟負責供應鏈的風險管理與物料決策，在深刻體會到數據的影響力後，我於離開微軟之際，投入了資策會 600 小時的巨量資料分析培訓，正式轉職為數據工程師。隨後，我先後進入聯發科與台積電服務，在最嚴格的產業環境中，累積了扎實的大型企業數據管線（ETL）建置與系統分析實戰經驗。</p>
+                        
+                        <p>為了進一步深化 AI 領域的專業，我進入陽明交大科技管理研究所在職專班主修機器學習，並參與了「AI 新秀計畫」。這段兼具技術深鑽與商業思維的歷程，讓我具備了「懂技術，也懂商業邏輯」的獨特優勢。</p>
+                        
+                        <p>在技術領域，我熱衷於開發高效、可擴展的解決方案。無論是運用電腦視覺技術、開發基於 LLMOps 與 Multi-Agent 架構的 AI 應用，還是建置自動化測試框架，我都能獨立完成端到端 (End-to-End) 的程式開發。同時，我也擅長在多變的專案環境中，扮演跨部門溝通的橋樑，確保技術能精準解決真實的商業痛點。</p>
+                        
+                        <p>離開程式碼與終端機的視窗後，我喜歡透過旅行去探索世界不同的角落，也享受專研手沖咖啡風味的寧靜時光。對我來說，無論是沖煮一杯好咖啡，還是寫出一段優雅的程式碼，都需要同樣的專注與對細節的講究。</p>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -120,7 +136,13 @@
                             <span class="gpa-badge">GPA: 4.3/4.3</span>
                             
                             <div class="thesis-box">
-                                <p class="thesis-title"><strong>論文研究：</strong>融合結構化與語意特徵之機器學習模型於半導體專利存續預測</p>
+                                <p class="thesis-title">
+                                    <strong>論文研究：</strong>
+                                    <a href="https://thesis.lib.nycu.edu.tw/items/567c1a7f-7ad9-48a4-9aef-44737291f07b" target="_blank" class="thesis-link">
+                                        融合結構化與語意特徵之機器學習模型於半導體專利存續預測 
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </p>
                                 <ul class="thesis-details">
                                     <li>針對逾 15 萬筆美國半導體專利，運用預訓練語言模型萃取文本語意特徵 (Semantic Embeddings)，並與結構化變數進行異質資料融合。</li>
                                     <li>構建並驗證多重機器學習與堆疊式集成模型 (Stacking Ensemble)，實證結合語意特徵能顯著提升專利價值的早期預測準確率。</li>
@@ -332,6 +354,134 @@
                 </div>
             </div>
         </section>
+		
+		<section id="certifications" class="certifications-section">
+            <div class="container">
+                <h2 class="section-title">
+                    專業證照 <span>Certifications</span>
+                </h2>
+                
+                <div class="cert-grid">
+                    <a href="https://learn.microsoft.com/api/credentials/share/zh-tw/AndyChen-1087/7575A9E4F4DB23A3?sharingId=287696B054B63EB1" target="_blank" class="cert-card">
+                        <div class="cert-icon-box microsoft-color">
+                            <i class="fab fa-microsoft"></i>
+                        </div>
+                        <div class="cert-content">
+                            <h4>Microsoft Certified</h4>
+                            <p>Azure AI Fundamentals AI-900 <i class="fas fa-external-link-alt" style="font-size: 0.8rem; margin-left: 0.3rem; opacity: 0.6;"></i></p>
+                        </div>
+                    </a>
+
+                    <a href="https://learn.microsoft.com/api/credentials/share/zh-tw/AndyChen-1087/6D71C222E01DBE8E?sharingId=287696B054B63EB1" target="_blank" class="cert-card">
+                        <div class="cert-icon-box microsoft-color">
+                            <i class="fab fa-microsoft"></i>
+                        </div>
+                        <div class="cert-content">
+                            <h4>Microsoft Certified</h4>
+                            <p>Azure Fundamentals AZ-900 <i class="fas fa-external-link-alt" style="font-size: 0.8rem; margin-left: 0.3rem; opacity: 0.6;"></i></p>
+                        </div>
+                    </a>
+
+                    <div class="cert-card">
+                        <div class="cert-icon-box google-color">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <div class="cert-content">
+                            <h4>Google Cloud</h4>
+                            <p>Getting Started with Google Kubernetes Engine</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-icon-box toeic-color">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="cert-content">
+                            <h4>TOEIC</h4>
+                            <p>920 / Gold Certificate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		
+		<section id="training" class="training-section">
+            <div class="container">
+                <h2 class="section-title">
+                    專業培訓 <span>Training</span>
+                </h2>
+                
+                <div class="training-stack">
+                    
+                    <div class="training-group">
+                        <div class="training-group-header">
+                            <i class="fas fa-flag-checkered"></i>
+                            <h3>核心專業學程</h3>
+                        </div>
+                        <ul class="training-list core-programs-grid">
+                            <li>
+                                <div class="training-item-title">經濟部 AI 新秀計畫 - AI 架構師 <span>| 620 小時</span></div>
+                                <div class="training-item-org">國立陽明交通大學 人工智慧專責辦公室 | 協辦: 群聯、微軟、資策會</div>
+                                <div class="training-item-date">2025.10 – 2026.09</div>
+                                <div class="training-item-desc">
+                                    AI 全域實戰課程 (雲端 × 地端 × Edge)，包含 320 小時專業培訓與 300 小時實作專案。
+                                    <ul class="item-inner-list">
+                                        <li><strong>AI 與生成式技術：</strong> 涵蓋機器學習與深度學習理論，深入生成式 AI (GenAI) 領域，並實作檢索增強生成 (RAG) 與 Vibe Coding 開發。</li>
+                                        <li><strong>系統網路與模型部署：</strong> 具備計算機系統管理 (System Administration) 與 CCNA 網路規劃管理能力，並熟悉 vLLM 推論加速與 LLMOps 實踐。</li>
+                                        <li><strong>雲端平台與自動化：</strong> 整合 Microsoft Azure 實務應用 (含 AI-900 認證) 與 Power Platform，並運用 n8n 構建自動化工作流。</li>
+                                        <li><strong>大型實作專案：</strong> 投入 300 小時專案開發，聚焦於硬體架構、模型推論加速與雲端整合，落地實踐企業級 AI 解決方案。</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="training-item-title">巨量資料分析就業養成班 <span>| 600 小時</span></div>
+                                <div class="training-item-org">財團法人資訊工業策進會 (III)</div>
+                                <div class="training-item-date">2021.06 – 2021.11</div>
+                                <div class="training-item-desc">
+                                    具備從資料採集、大數據運算到模型建置之端到端 (End-to-End) 開發能力。
+                                    <ul class="item-inner-list">
+                                        <li><strong>資料分析與機器學習：</strong> 運用 Python 進行資料處理與分析、網路爬蟲，並實作機器學習與深度學習演算法。</li>
+                                        <li><strong>巨量資料與系統架構：</strong> 熟悉 Hadoop 巨量資料處理平台與 Spark 開發實務，並具備 Linux 系統管理與 Docker 容器式虛擬環境建置能力。</li>
+                                        <li><strong>資料庫與網頁應用：</strong> 整合 MySQL 資料庫實務，並具備 Java 程式設計、JavaScript 與 Python 網頁應用框架 (Web Framework) 開發經驗。</li>
+                                        <li><strong>期末實作專題：</strong> 【大台北地區房價預測】：結合 Python 網路爬蟲獲取外部數據，進行資料清理與特徵工程，並導入機器學習演算法建置房價預測模型，完成小組期末專題製作與發表。</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="training-group">
+                        <div class="training-group-header">
+                            <i class="fas fa-laptop-code"></i>
+                            <h3>技術進修 & 跨域學習</h3>
+                        </div>
+                        <ul class="training-list short-courses-grid">
+                            <li>
+                                <div class="training-item-title">AI 人工智慧之深度學習與實作 <span>| 54 小時</span></div>
+                                <div class="training-item-org">中國文化大學</div>
+                            </li>
+                            <li>
+                                <div class="training-item-title">Python 網路爬蟲、資料分析與應用實務 <span>| 三階段，共 141 小時</span></div>
+                                <div class="training-item-org">全國勞工聯合總工會</div>
+                            </li>
+                            <li>
+                                <div class="training-item-title">Excel 進階與 Power BI 數據分析 <span>| 42 小時</span></div>
+                                <div class="training-item-org">臺北市勞動力服務人員職業工會</div>
+                            </li>
+                            <li>
+                                <div class="training-item-title">大數據分析與應用 <span>| 36 小時</span></div>
+                                <div class="training-item-org">國立臺灣科技大學</div>
+                            </li>
+                            <li>
+                                <div class="training-item-title">精品咖啡調製 <span>| 42 小時</span> <i class="fas fa-coffee" style="color: #d4af37; margin-left: 5px;"></i></div>
+                                <div class="training-item-org">臺灣文化創意產業發展協會</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+		
 		<section id="projects" class="projects-section">
             <div class="container">
                 <h2 class="section-title">

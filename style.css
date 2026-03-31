@@ -16,6 +16,64 @@
     --font-code: 'Roboto Mono', monospace;
 }
 
+/* 原本的 :root 保持不動... */
+
+/* ===== 亮色主題變數 (Light Theme) ===== */
+[data-theme="light"] {
+    --color-bg: #f8fafc;         /* 淺灰藍背景 (與你的履歷背景相同) */
+    --color-bg-alt: #ffffff;     /* 純白卡片背景 */
+    --color-text: #475569;       /* 深灰文字 */
+    --color-heading: #0f172a;    /* 近乎黑色的標題 */
+    --color-primary: #2563eb;    /* 經典科技藍 (稍微加深以維持對比度) */
+    --color-border: #e2e8f0;     /* 淺灰邊框 */
+}
+
+/* 針對特定帶有透明度的背景進行亮色優化 */
+[data-theme="light"] .navbar {
+    background-color: rgba(255, 255, 255, 0.85); /* 導航列變白色毛玻璃 */
+}
+
+[data-theme="light"] #hero::before {
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.1), transparent 60%);
+}
+
+[data-theme="light"] .project-icon-wrapper {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+[data-theme="light"] .thesis-box {
+    background-color: rgba(37, 99, 235, 0.05); /* 論文框改用極淺的藍色 */
+}
+
+/* ===== 主題切換按鈕樣式 ===== */
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-text);
+    font-size: 1.25rem;
+    cursor: pointer;
+    margin-left: 1.5rem;
+    padding: 0.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--color-primary);
+    transform: scale(1.1); /* 滑鼠懸停時微微放大 */
+}
+
+/* 手機版微調 */
+@media (max-width: 992px) {
+    .theme-toggle-btn {
+        margin-left: 0;
+        margin-bottom: 1rem;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
 /* --- 基礎重設 (Reset) --- */
 * {
     margin: 0;
@@ -559,18 +617,62 @@ ul {
     font-weight: 500;
 }
 
-/* ===== 關於我區塊 (About Section) ===== */
+//* ===== 關於我區塊 (About Section) - 升級雙欄畫框版 ===== */
 .about-section {
     padding: 5rem 0;
-    scroll-margin-top: 65px; /* 避免點擊導航列跳轉時，被固定頂部的 Navbar 擋住標題 */
+    scroll-margin-top: 65px;
 }
 
-.about-card {
+/* 雙欄容器 (Flexbox) - 改為置中對齊，不強制等高 */
+.about-card-split {
     background-color: var(--color-bg-alt);
-    padding: 2.5rem;
+    padding: 3rem; /* 統一設定整張卡片的內距 */
     border-radius: 12px;
     border: 1px solid var(--color-border);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center; /* 關鍵：讓左右兩邊垂直置中，高度各自獨立，不再互相綁架 */
+    gap: 3rem; /* 圖片與文字的間距 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="light"] .about-card-split:hover {
+    border-color: rgba(37, 99, 235, 0.3);
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.1);
+}
+
+/* 圖片欄位 - 畫框設計 */
+.about-image-column {
+    flex: 0 0 32%; /* 圖片佔卡片的 32% 寬度 */
+}
+
+.about-image-wrapper {
+    width: 100%;
+    aspect-ratio: 3 / 4; /* 關鍵：鎖定完美的 3:4 直式人像比例 (若喜歡方形可改為 1 / 1) */
+    border-radius: 16px; /* 讓照片擁有柔和的圓角 */
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* 給照片獨立的陰影，提升立體感 */
+    border: 1px solid var(--color-border);
+}
+
+.about-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top; /* 預設對齊圖片的「中上方」，盡量保證人臉不被裁 */
+    transition: transform 0.5s ease;
+}
+
+.about-card-split:hover .about-image-wrapper img {
+    transform: scale(1.05); /* 滑鼠懸停時微微放大，增加互動感 */
+}
+
+/* 文字欄位 */
+.about-text-column {
+    flex: 1; /* 佔據右側剩餘的所有空間 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .about-subtitle {
@@ -579,14 +681,26 @@ ul {
     font-size: 1.4rem;
 }
 
-/* 手機版微調 */
-@media (max-width: 768px) {
-    .about-card {
-        padding: 1.5rem; /* 手機版內距縮小一點比較好看 */
+.about-text-column p {
+    margin-bottom: 1.2rem;
+}
+
+.about-text-column p:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== 關於我 響應式微調 (RWD) ===== */
+@media (max-width: 992px) {
+    .about-card-split {
+        flex-direction: column; /* 手機版改為上下堆疊 */
+        padding: 2rem;
+        gap: 2rem;
     }
     
-    .section-title span {
-        font-size: 1.2rem;
+    .about-image-column {
+        width: 60%; /* 手機版時圖片不要太大，留點空間 */
+        max-width: 280px; 
+        margin: 0 auto; /* 讓圖片在手機上置中 */
     }
 }
 /* ===== 學歷與經歷共用：時間軸設計 (Timeline) ===== */
@@ -1093,4 +1207,275 @@ a.contact-card:hover .contact-icon-box {
     font-size: 0.9rem;
     color: var(--color-text);
     opacity: 0.7;
+}
+/* ===== 論文連結特效 ===== */
+.thesis-link {
+    color: var(--color-heading); /* 預設跟一般標題顏色一樣 */
+    text-decoration: none; /* 隱藏預設底線 */
+    transition: color 0.3s ease;
+    display: inline-block; /* 讓斷行比較漂亮 */
+    margin-top: 0.3rem;
+}
+
+.thesis-link:hover {
+    color: var(--color-primary); /* 滑鼠懸停時變成科技藍 */
+}
+
+.thesis-link i {
+    font-size: 0.85em;
+    margin-left: 0.3rem;
+    opacity: 0.7; /* 讓外部連結的小圖示稍微淡一點，不搶主角風采 */
+}
+
+/* ===== 專業證照區塊 (Certifications) ===== */
+.certifications-section {
+    padding: 2rem 0 5rem 0; /* 縮小上方的 padding，讓它跟 Skills 區塊靠得更緊密 */
+    scroll-margin-top: 65px;
+}
+
+.cert-grid {
+    display: grid;
+    /* 三欄排版，寬度縮小時會自動變雙欄或單欄 */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.cert-card {
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.cert-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-primary);
+}
+
+[data-theme="light"] .cert-card:hover {
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1);
+    border-color: rgba(37, 99, 235, 0.3);
+}
+
+/* 證照圖示外框 */
+.cert-icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    flex-shrink: 0; /* 防止圖示被壓縮 */
+}
+
+/* 微軟專屬顏色 (藍色系) */
+.microsoft-color {
+    background-color: rgba(0, 164, 239, 0.1);
+    color: #00a4ef;
+}
+
+/* Google 專屬顏色 (經典色/深灰皆可，這裡用 Google 藍) */
+.google-color {
+    background-color: rgba(66, 133, 244, 0.1);
+    color: #4285f4;
+}
+
+.cert-content h4 {
+    margin: 0 0 0.2rem 0;
+    font-size: 0.95rem;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.cert-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-heading);
+    font-weight: 600;
+    line-height: 1.4;
+}
+/* TOEIC 專屬顏色 (金黃色系，象徵金色證書) */
+.toeic-color {
+    background-color: rgba(212, 175, 55, 0.1);
+    color: #d4af37; /* 金色 (Gold) */
+}
+
+/* 確保作為連結的證照卡片在亮色/暗色模式下都有正確的文字顏色 */
+a.cert-card {
+    text-decoration: none;
+}
+
+[data-theme="light"] a.cert-card:hover {
+    background-color: #ffffff;
+}
+
+/* ===== 專業培訓區塊 (Training) ===== */
+.training-section {
+    padding: 2rem 0 5rem 0;
+    scroll-margin-top: 65px;
+}
+
+/* 上下堆疊容器 */
+.training-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* 卡片外觀基礎設定 */
+.training-group {
+    background-color: var(--color-bg-alt);
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.training-group-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.training-group-header i {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.training-group-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: var(--color-heading);
+}
+
+/* 清單基礎與網格設定 */
+.training-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.training-list li {
+    margin-bottom: 0 !important;
+    position: relative;
+}
+
+/* 核心學程：電腦版左右並排 */
+.core-programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2.5rem;
+}
+
+/* 短期進修：電腦版自適應多欄 */
+.short-courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* 短期課程特有的科技藍色小圓點 */
+.short-courses-grid li {
+    padding-left: 1.2rem;
+}
+
+.short-courses-grid li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+}
+
+/* 文字排版：標題、機構、日期、描述 */
+.training-item-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-text);
+    line-height: 1.4;
+    margin-bottom: 0.3rem;
+}
+
+.training-item-title span {
+    font-size: 0.85rem;
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.training-item-org {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    opacity: 0.7;
+}
+
+.training-item-date {
+    font-size: 0.85rem;
+    color: var(--color-primary);
+    font-family: var(--font-code);
+    margin-top: 0.3rem;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+
+.training-item-desc {
+    margin-top: 0.8rem;
+    border-left: 3px solid rgba(48, 168, 240, 0.3);
+    padding-left: 1rem;
+    font-size: 0.95rem;
+    color: var(--color-heading);
+}
+
+/* 核心學程內的子列表樣式 (▹ 符號) */
+.item-inner-list {
+    margin-top: 0.8rem;
+    padding-left: 0;
+    list-style: none;
+}
+
+.item-inner-list li {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin-bottom: 0.5rem !important;
+    padding-left: 1.2rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.item-inner-list li::before {
+    content: "▹"; 
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+    background: none; 
+    width: auto;
+    height: auto;
+}
+
+.item-inner-list li strong {
+    color: var(--color-heading);
+}
+
+/* 手機版微調 (RWD) */
+@media (max-width: 768px) {
+    .training-group {
+        padding: 1.5rem; /* 手機版卡片內距縮小 */
+    }
+    .core-programs-grid {
+        grid-template-columns: 1fr; /* 核心學程在手機版改為上下排列 */
+        gap: 2rem;
+    }
 }

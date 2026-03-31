@@ -70,5 +70,41 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
+	
+	/* --- 深淺色主題切換 (Dark/Light Mode Toggle) --- */
+    
+    var themeToggleBtn = document.getElementById('theme-toggle');
+    var themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
 
+    if (themeToggleBtn && themeIcon) {
+        // 1. 檢查 LocalStorage 中是否有儲存的主題紀錄
+        var currentTheme = localStorage.getItem('theme');
+        
+        // 如果有紀錄，且是 'light'，就幫 <body> 加上屬性，並把圖示換成月亮
+        if (currentTheme === 'light') {
+            document.body.setAttribute('data-theme', 'light');
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
+
+        // 2. 點擊按鈕時的切換邏輯
+        themeToggleBtn.addEventListener('click', function() {
+            // 檢查目前 <body> 是否有 data-theme="light"
+            var isLight = document.body.getAttribute('data-theme') === 'light';
+            
+            if (isLight) {
+                // 如果目前是亮色 -> 切換為暗色 (移除屬性)
+                document.body.removeAttribute('data-theme');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun'); // 顯示太陽圖示(代表點擊可切換至亮色)
+                localStorage.setItem('theme', 'dark'); // 存入記憶
+            } else {
+                // 如果目前是暗色 -> 切換為亮色 (加上屬性)
+                document.body.setAttribute('data-theme', 'light');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon'); // 顯示月亮圖示(代表點擊可切換至暗色)
+                localStorage.setItem('theme', 'light'); // 存入記憶
+            }
+        });
+    }
 });
