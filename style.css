@@ -543,3 +543,554 @@ ul {
         gap: 0.8rem;
     }
 }
+
+/* ===== 共用區塊設計 (Sections Common) ===== */
+.section-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+/* 標題旁邊的英文小字 */
+.section-title span {
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    font-family: var(--font-primary);
+    font-weight: 500;
+}
+
+/* ===== 關於我區塊 (About Section) ===== */
+.about-section {
+    padding: 5rem 0;
+    scroll-margin-top: 65px; /* 避免點擊導航列跳轉時，被固定頂部的 Navbar 擋住標題 */
+}
+
+.about-card {
+    background-color: var(--color-bg-alt);
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.about-subtitle {
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+}
+
+/* 手機版微調 */
+@media (max-width: 768px) {
+    .about-card {
+        padding: 1.5rem; /* 手機版內距縮小一點比較好看 */
+    }
+    
+    .section-title span {
+        font-size: 1.2rem;
+    }
+}
+/* ===== 學歷與經歷共用：時間軸設計 (Timeline) ===== */
+.education-section {
+    padding: 5rem 0;
+    scroll-margin-top: 65px;
+}
+
+.timeline {
+    position: relative;
+    max-width: 850px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    border-left: 2px solid var(--color-border); /* 垂直時間線 */
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+/* 時間軸上的發光圓點 */
+.timeline-dot {
+    position: absolute;
+    left: -2.45rem; /* 根據邊框與 padding 調整位置 */
+    top: 0.25rem;
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-bg);
+    border: 3px solid var(--color-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(48, 168, 240, 0.5); /* 科技感發光效果 */
+}
+
+/* 內容卡片 */
+.timeline-content {
+    background-color: var(--color-bg-alt);
+    padding: 1.8rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* 滑鼠懸停卡片會微微浮起並亮起邊框 */
+.timeline-content:hover {
+    transform: translateY(-3px);
+    border-color: rgba(48, 168, 240, 0.4);
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.timeline-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: var(--color-heading);
+}
+
+.timeline-date {
+    color: var(--color-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: rgba(48, 168, 240, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.timeline-degree {
+    color: var(--color-text);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.gpa-badge {
+    display: inline-block;
+    background-color: var(--color-border);
+    color: var(--color-text);
+    font-size: 0.85rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+}
+
+/* 論文資訊區塊 (突顯亮點) */
+.thesis-box {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-left: 3px solid var(--color-primary);
+    padding: 1rem 1.2rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.thesis-title {
+    font-size: 0.95rem;
+    color: var(--color-heading);
+    margin-bottom: 0.5rem;
+}
+
+.thesis-details {
+    margin-left: 1.2rem;
+    list-style-type: disc;
+    color: var(--color-text);
+    font-size: 0.9rem;
+}
+
+.thesis-details li {
+    margin-bottom: 0.4rem;
+}
+
+.thesis-details li:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== 響應式設計 (手機版微調) ===== */
+@media (max-width: 768px) {
+    .timeline {
+        padding-left: 1.5rem;
+    }
+    
+    .timeline-dot {
+        left: -1.95rem;
+    }
+    
+    .timeline-content {
+        padding: 1.5rem;
+    }
+    
+    .timeline-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .timeline-date {
+        margin-top: 0.2rem;
+    }
+}
+/* ===== 經歷區塊的列表設計 ===== */
+.experience-list {
+    margin-left: 1.2rem;
+    list-style-type: disc;
+    color: var(--color-text);
+    font-size: 0.95rem; /* 字體大小適中，方便閱讀長篇描述 */
+}
+
+.experience-list li {
+    margin-bottom: 0.8rem; /* 增加每個項目之間的距離，避免文字擠在一起 */
+    line-height: 1.6;
+}
+
+.experience-list li:last-child {
+    margin-bottom: 0;
+}
+
+.experience-list strong {
+    color: var(--color-heading); /* 讓粗體字亮起來，引導視覺焦點 */
+}
+/* ===== 技能區塊 (Skills) ===== */
+.skills-section {
+    padding: 5rem 0;
+    scroll-margin-top: 65px;
+}
+
+/* 使用 Grid 網格系統，讓卡片自動排列 */
+.skills-grid {
+    display: grid;
+    /* 自動適應寬度：最小 300px，最大填滿剩餘空間 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-card {
+    background-color: var(--color-bg-alt);
+    padding: 1.8rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 25px rgba(48, 168, 240, 0.15); /* 懸停發光陰影 */
+}
+
+.skill-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px dashed var(--color-border); /* 虛線分隔線 */
+}
+
+.skill-icon {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.skill-title {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--color-heading);
+}
+
+/* 標籤容器：讓標籤自動換行 */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+/* 獨立技能標籤 (Pill 設計) */
+.skill-tag {
+    background: rgba(48, 168, 240, 0.1); /* 帶有透明度的科技藍 */
+    color: var(--color-text);
+    font-size: 0.85rem;
+    font-family: var(--font-code); /* 使用等寬字體，更有工程師感 */
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px; /* 圓角膠囊形狀 */
+    border: 1px solid rgba(48, 168, 240, 0.3);
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background: var(--color-primary);
+    color: var(--color-bg);
+}
+/* ===== 專案區塊 (Projects) ===== */
+.projects-section {
+    padding: 5rem 0;
+    scroll-margin-top: 65px;
+}
+
+.projects-grid {
+    display: grid;
+    /* 三欄排版，若螢幕太小則自動改為單欄或雙欄 */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: var(--color-bg-alt);
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    overflow: hidden; /* 確保內容不會超出圓角 */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(48, 168, 240, 0.3);
+}
+
+.project-icon-wrapper {
+    background: linear-gradient(135deg, rgba(48, 168, 240, 0.1) 0%, rgba(13, 17, 23, 0) 100%);
+    padding: 2.5rem 0;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.project-icon {
+    font-size: 3.5rem;
+    color: var(--color-primary);
+    filter: drop-shadow(0 0 10px rgba(48, 168, 240, 0.4));
+}
+
+.project-content {
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* 讓內容區塊填滿剩餘空間，使底部的按鈕對齊 */
+}
+
+.project-header {
+    margin-bottom: 1rem;
+}
+
+.project-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.3rem;
+    color: var(--color-heading);
+}
+
+.project-date {
+    font-size: 0.85rem;
+    color: var(--color-primary);
+    font-family: var(--font-code);
+}
+
+.project-desc {
+    color: var(--color-text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* 讓文字區塊伸展，把標籤跟按鈕往下推 */
+}
+
+.project-desc strong {
+    color: var(--color-heading);
+}
+
+/* 實用工具類 (Utilities) */
+.w-100 {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* 外框按鈕樣式 (Outline Button) */
+.btn-outline {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-outline i {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.btn-outline:hover {
+    background-color: var(--color-heading);
+    color: var(--color-bg);
+    border-color: var(--color-heading);
+}
+/* ===== 聯繫區塊 (Contact) ===== */
+.contact-section {
+    padding: 5rem 0;
+    scroll-margin-top: 65px;
+}
+
+.contact-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-intro {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin-bottom: 3rem;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.contact-card {
+    background-color: var(--color-bg-alt);
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 確保不是連結的卡片 (如地址) 也有相同的懸停效果，但不顯示指標 */
+a.contact-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 25px rgba(48, 168, 240, 0.15);
+}
+
+div.contact-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-border);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.contact-icon-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(48, 168, 240, 0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.2rem;
+    color: var(--color-primary);
+    font-size: 1.8rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a.contact-card:hover .contact-icon-box {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+}
+
+.contact-card h4 {
+    color: var(--color-heading);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    word-break: break-all; /* 防止長 Email 破壞版面 */
+}
+
+/* 社群連結按鈕 */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-linkedin {
+    background-color: #0077b5; /* LinkedIn 品牌色 */
+    color: #ffffff;
+    border: 2px solid #0077b5;
+}
+
+.btn-linkedin:hover {
+    background-color: transparent;
+    color: #0077b5;
+}
+
+.btn-github {
+    background-color: #333; /* GitHub 品牌深色 */
+    color: #ffffff;
+    border: 2px solid #333;
+}
+
+.btn-github:hover {
+    background-color: transparent;
+    color: var(--color-text);
+    border-color: var(--color-border);
+}
+
+/* ===== 頁尾區塊 (Footer) ===== */
+.footer {
+    background-color: var(--color-bg-alt);
+    border-top: 1px solid var(--color-border);
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-logo img {
+    height: 40px;
+    width: auto;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer-logo:hover img {
+    opacity: 1;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    opacity: 0.7;
+}

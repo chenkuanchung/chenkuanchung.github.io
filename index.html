@@ -78,12 +78,400 @@
 			</div>
 		</section>	
 	
-    <main style="padding: 4rem 0; height: 200vh;">
+    <main>
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">
+                    關於我 <span>About</span>
+                </h2>
+                
+                <div class="about-card">
+                    <h3 class="about-subtitle">
+                        從數據中挖掘洞見，用 AI 創造真實價值。
+                    </h3>
+                    
+                    <p>你好，我是 Andy (陳冠中)，一名專注於人工智慧應用與大數據分析的 AI Application Engineer。</p>
+                    
+                    <p>我的職涯歷程是一段跨領域的成長之旅。早期我曾在台灣微軟負責供應鏈的風險管理與物料決策，在深刻體會到數據的影響力後，我於離開微軟之際，投入了資策會 600 小時的巨量資料分析培訓，正式轉職為數據工程師。隨後，我以派遣工程師的身份，先後進入聯發科與台積電服務，在最嚴格的產業環境中，累積了扎實的大型企業數據管線（ETL）建置與系統分析實戰經驗。</p>
+                    
+                    <p>為了進一步深化 AI 領域的專業，我進入陽明交大科技管理研究所在職專班主修機器學習，並參與了「AI 新秀計畫」。這段兼具技術深鑽與商業思維的歷程，讓我具備了「懂技術，也懂商業邏輯」的獨特優勢。</p>
+                    
+                    <p>在技術領域，我熱衷於開發高效、可擴展的解決方案。無論是運用電腦視覺技術、開發基於 LLMOps 與 Multi-Agent 架構的 AI 應用，還是建置自動化測試框架，我都能獨立完成端到端 (End-to-End) 的程式開發。同時，我也擅長在多變的專案環境中，扮演跨部門溝通的橋樑，確保技術能精準解決真實的商業痛點。</p>
+                    
+                    <p>離開程式碼與終端機的視窗後，我喜歡透過旅行去探索世界不同的角落，也享受專研手沖咖啡風味的寧靜時光。對我來說，無論是沖煮一杯好咖啡，還是寫出一段優雅的程式碼，都需要同樣的專注與對細節的講究。</p>
+                </div>
+            </div>
+        </section>
+		<section id="education" class="education-section">
+            <div class="container">
+                <h2 class="section-title">
+                    學歷 <span>Education</span>
+                </h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>國立陽明交通大學 (NYCU)</h3>
+                                <span class="timeline-date">2023.07 – 2025.08</span>
+                            </div>
+                            <h4 class="timeline-degree">科技管理研究所 碩士</h4>
+                            <span class="gpa-badge">GPA: 4.3/4.3</span>
+                            
+                            <div class="thesis-box">
+                                <p class="thesis-title"><strong>論文研究：</strong>融合結構化與語意特徵之機器學習模型於半導體專利存續預測</p>
+                                <ul class="thesis-details">
+                                    <li>針對逾 15 萬筆美國半導體專利，運用預訓練語言模型萃取文本語意特徵 (Semantic Embeddings)，並與結構化變數進行異質資料融合。</li>
+                                    <li>構建並驗證多重機器學習與堆疊式集成模型 (Stacking Ensemble)，實證結合語意特徵能顯著提升專利價值的早期預測準確率。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>國立成功大學 (NCKU)</h3>
+                                <span class="timeline-date">2011.09 – 2015.06</span>
+                            </div>
+                            <h4 class="timeline-degree">外國語文學系 學士</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		<section id="experience" class="education-section"> <div class="container">
+                <h2 class="section-title">
+                    經歷 <span>Experience</span>
+                </h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>Phison Electronics (群聯電子)</h3>
+                                <span class="timeline-date">2024.10 – 2025.04</span>
+                            </div>
+                            <h4 class="timeline-degree">AI Application Engineer Intern</h4>
+                            
+                            <ul class="experience-list">
+                                <li><strong>自動化偵測框架開發：</strong> 建立以 Python 為核心並整合 GitLab 版本控管之偵測框架。支援跨部門測試流程透過 Git 調用主程式執行 Log 分析，自動判定韌體測試失敗原因並回寫 Jira，大幅降低人工排查時間。</li>
+                                <li><strong>LLM 驅動偵測模組產製平台：</strong> 以 <strong>Flask 框架實作容器化 Web 應用程式</strong> 並串接 OpenAI API，讓研發人員以自然語言描述判定邏輯即可自動生成 Python 偵測模組，顯著提升規則擴充效率。</li>
+                                <li><strong>AI Agent 自動驗證與一鍵部署：</strong> 導入 AI Agent 流程自動驗證生成模組之邏輯正確性，並實作 <strong>「一鍵推送 (Push) 至 GitLab」</strong> 功能，確保新規則能即時併入自動化測試主流程中調用。</li>
+                                <li><strong>偵測成效監控與優化：</strong> 建立 Tableau 儀表板持續監控偵測準確率與失效模式分佈，提供數據化依據以持續精進自動化分析流程。</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>Wistron ITS (緯創軟體) — 派駐台積電</h3>
+                                <span class="timeline-date">2022.08 – 2024.04</span>
+                            </div>
+                            <h4 class="timeline-degree">Data Engineer / Data Analyst</h4>
+                            
+                            <ul class="experience-list">
+                                <li><strong>企業稽核數據分析：</strong> 於內部稽核部門分析上千萬筆 IT 系統數據，識別 FAB 零件生命週期、資產進出廠、廠商圍標與價格趨勢等營運風險。</li>
+                                <li><strong>ETL Pipeline 開發：</strong> 使用 Python (Pandas / NumPy) 與 SQL (SAP / Oracle) 建置自動化 ETL 流程，執行 IQR、相關係數與變異係數等統計分析以偵測異常因子。</li>
+                                <li><strong>自動化數據採集與可視化：</strong> 開發網頁爬蟲補充外部數據源，並設計 Power BI 互動式儀表板將風險指標轉化為直觀分析結果，支援稽核決策流程。</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>Acer Synergy Tech (宏碁創達) — 派駐聯發科技</h3>
+                                <span class="timeline-date">2021.11 – 2022.07</span>
+                            </div>
+                            <h4 class="timeline-degree">Data Engineer / Data Analyst</h4>
+                            
+                            <ul class="experience-list">
+                                <li><strong>自動化報表系統：</strong> 運用 BigQuery, Airflow, Oracle DB 等工具建置 Data Pipeline，負責 Tableau 報表開發、維護與資料門戶 (DA Portal) 管理。</li>
+                                <li><strong>晶片效能分析系統：</strong> 參與手機效能與功耗比較系統開發，使用 Python 實作各場景下之電流計算與轉換邏輯。</li>
+                                <li><strong>跨團隊協作整合：</strong> 擔任 PM Assistant 協調整合 AI 與全端開發部門需求，確保系統功能測試與版本如期上線。</li>
+                            </ul>
+                        </div>
+                    </div>
+					
+					<div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>Microsoft Taiwan (台灣微軟)</h3>
+                                <span class="timeline-date">2019.10 – 2021.06</span>
+                            </div>
+                            <h4 class="timeline-degree">Material Planner</h4>
+                            
+                            <ul class="experience-list">
+                                <li><strong>供應鏈風險管理：</strong> 負責 NPI 專案物料追蹤與 BOM 風險控管，運用 Power BI 維護視覺化報表，提供團隊即時的物料決策依據。</li>
+                                <li><strong>風險預警機制：</strong> 執行物料清單驗證 (BOM Scrub)，針對停產日 (EOP) 與交期 (Lead Time) 進行稽核，預先示警並排除潛在斷鏈風險。</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>Wistron Corp (緯創資通)</h3>
+                                <span class="timeline-date">2017.02 – 2019.06</span>
+                            </div>
+                            <h4 class="timeline-degree">Procurement Specialist</h4>
+                            
+                            <ul class="experience-list">
+                                <li><strong>採購流程執行與優化：</strong> 負責企業資產設備之詢比議價、談判與供應商管理，透過供應鏈優化確保採購成本效益與品質控管。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		<section id="skills" class="skills-section">
+            <div class="container">
+                <h2 class="section-title">
+                    技能 <span>Skills</span>
+                </h2>
+                
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <i class="fas fa-code skill-icon"></i>
+                            <h3 class="skill-title">Programming</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <i class="fas fa-brain skill-icon"></i>
+                            <h3 class="skill-title">Machine Learning / AI</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">Scikit-learn</span>
+                            <span class="skill-tag">OpenCV</span>
+                            <span class="skill-tag">HuggingFace</span>
+                            <span class="skill-tag">Transformers</span>
+                            <span class="skill-tag">RAG</span>
+                            <span class="skill-tag">OpenAI API</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <i class="fas fa-robot skill-icon"></i>
+                            <h3 class="skill-title">AI App Development</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">LLMOps</span>
+                            <span class="skill-tag">LangGraph</span>
+                            <span class="skill-tag">AutoGen</span>
+                            <span class="skill-tag">vLLM</span>
+                            <span class="skill-tag">API Integration</span>
+                            <span class="skill-tag">Flask</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <i class="fas fa-filter skill-icon"></i>
+                            <h3 class="skill-title">Data Engineering</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">Web Scraping</span>
+                            <span class="skill-tag">ETL Pipeline</span>
+							<span class="skill-tag">Hadoop</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <i class="fas fa-server skill-icon"></i>
+                            <h3 class="skill-title">System & DevOps</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">GitLab CI/CD</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <i class="fas fa-chart-pie skill-icon"></i>
+                            <h3 class="skill-title">Database & Viz</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Oracle</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">BigQuery</span>
+                            <span class="skill-tag">Power BI</span>
+                            <span class="skill-tag">Tableau</span>
+                            <span class="skill-tag">Streamlit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		<section id="projects" class="projects-section">
+            <div class="container">
+                <h2 class="section-title">
+                    專案 <span>Projects</span>
+                </h2>
+                
+                <div class="projects-grid">
+                    
+                    <div class="project-card">
+                        <div class="project-icon-wrapper">
+                            <i class="fas fa-user-check project-icon"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">EvoFace - AI 人臉辨識考勤系統</h3>
+                                <span class="project-date">2026.01 – 2026.02</span>
+                            </div>
+                            <p class="project-desc">
+                                獨立開發基於 OpenCV 與 InsightFace 的人臉辨識系統，並整合 MiniFASNet 進行活體偵測。針對高負載的考勤打卡場景，導入 <strong>SQLite WAL Mode</strong>（資料庫併發優化）與 <strong>非同步多執行緒 (QThread)</strong> 架構，確保前端 UI 渲染與後端影像推論的流暢穩定。
+                            </p>
+                            <div class="skill-tags" style="margin-bottom: 1.5rem;">
+                                <span class="skill-tag">OpenCV</span>
+                                <span class="skill-tag">InsightFace</span>
+                                <span class="skill-tag">SQLite</span>
+                                <span class="skill-tag">PyQt/QThread</span>
+                            </div>
+                            <a href="https://github.com/chenkuanchung/evoface-attendance" target="_blank" class="btn btn-outline w-100 text-center">
+                                <i class="fab fa-github"></i> 檢視原始碼
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-icon-wrapper">
+                            <i class="fas fa-file-powerpoint project-icon"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Smart Deck AI Agent - AI 簡報生成系統</h3>
+                                <span class="project-date">2025.12 – 2026.01</span>
+                            </div>
+                            <p class="project-desc">
+                                運用 <strong>LangGraph</strong> 建構 Multi-Agent（多代理人）協作架構，實現從使用者需求分析、內容大綱生成到投影片排版的端到端 (End-to-End) 產製流程。精準運用狀態管理 (State Management) 技術，解決 LLM 執行複雜長任務時易產生的上下文遺失與連貫性挑戰。
+                            </p>
+                            <div class="skill-tags" style="margin-bottom: 1.5rem;">
+                                <span class="skill-tag">LangGraph</span>
+                                <span class="skill-tag">Multi-Agent</span>
+                                <span class="skill-tag">LLM</span>
+                                <span class="skill-tag">Prompt Engineering</span>
+                            </div>
+                            <a href="https://github.com/chenkuanchung/smart-deck-ai-agent" target="_blank" class="btn btn-outline w-100 text-center">
+                                <i class="fab fa-github"></i> 檢視原始碼
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-icon-wrapper">
+                            <i class="fas fa-plane-departure project-icon"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">n8n AI Travel Planner - AI 旅遊代理系統</h3>
+                                <span class="project-date">2025.11 – 2025.12</span>
+                            </div>
+                            <p class="project-desc">
+                                基於 <strong>n8n</strong> 節點式架構建置結合多重外部 API 的 AI 代理系統。實作動態工作流與事實查證 (Fact-checking) 機制，並整合外部數據以降低 LLM 的幻覺 (Hallucination) 問題，展現實務上的 API 串接與自動化流程編排能力。
+                            </p>
+                            <div class="skill-tags" style="margin-bottom: 1.5rem;">
+                                <span class="skill-tag">n8n</span>
+                                <span class="skill-tag">API Integration</span>
+                                <span class="skill-tag">Workflow Automation</span>
+                            </div>
+                            <a href="https://github.com/chenkuanchung/n8n-ai-travel-planner" target="_blank" class="btn btn-outline w-100 text-center">
+                                <i class="fab fa-github"></i> 檢視原始碼
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+		<section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">
+                    聯繫 <span>Contact</span>
+                </h2>
+                
+                <div class="contact-container">
+                    <p class="contact-intro">如果您對我的專案感興趣，或有任何正職與合作機會，歡迎透過以下方式與我聯繫！</p>
+                    
+                    <div class="contact-grid">
+                        <a href="mailto:chenkuanchung810905@gmail.com" class="contact-card">
+                            <div class="contact-icon-box">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h4>Email</h4>
+                            <p>chenkuanchung810905@gmail.com</p>
+                        </a>
+                        
+                        <a href="tel:+886921664729" class="contact-card">
+                            <div class="contact-icon-box">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <h4>Phone</h4>
+                            <p>+886-921-664729</p>
+                        </a>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon-box">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h4>Location</h4>
+                            <p>苗栗縣頭份市, 台灣</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/kuan-chung-chen-21b17a135" target="_blank" class="social-btn btn-linkedin">
+                            <i class="fab fa-linkedin-in"></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/chenkuanchung" target="_blank" class="social-btn btn-github">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
         <div class="container">
-            <h1>這裡是頁面內容</h1>
-            <p>請上下滾動頁面，測試導航列的 'sticky' 效果。</p>
-            <p>也請縮放你的瀏覽器視窗，測試 RWD 漢堡選單是否正常運作。</p>
+            <div class="footer-content">
+                <a href="#hero" class="footer-logo">
+                    <img src="img/logo_rmbg.png" alt="AI-ing Logo">
+                </a>
+                <p>&copy; 2026 Andy Chen (陳冠中). All Rights Reserved.</p>
+            </div>
         </div>
+    </footer>
     </main>
 
 </body>
