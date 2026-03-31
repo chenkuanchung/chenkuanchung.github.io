@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-ing | Andy Chen (Portfolio)</title>
+    <meta name="description" content="Andy Chen's Portfolio. An AI Application Engineer focused on AI solutions, LLMOps, and Data Engineering.">
+    <meta property="og:title" content="AI.ing | Andy Chen">
+    <meta property="og:description" content="Dedicated to building efficient and scalable AI and data engineering solutions.">
+    <meta property="og:image" content="img/profile.jpg">
+
+    <title>AI.ing | Andy Chen</title>
     
     <link rel="stylesheet" href="style.css">
     
@@ -11,24 +16,30 @@
     
     <script defer src="script.js"></script>
 </head>
-<body>
+<body data-theme="light">
 
     <header class="navbar">
-		<div class="container">
-			
+        <div class="container">
+            
             <a href="#hero" class="nav-logo">
                 <img src="img/logo_rmbg.png" alt="AI-ing Logo">
-			</a>
-			
+            </a>
+            
             <nav>
                 <ul class="nav-menu">
                     <li><a href="#about">About</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#skills">Skills</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#training">Training</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
+                
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme" title="Toggle Theme">
+                    <i class="fas fa-moon"></i> 
+                </button>
                 
                 <div class="lang-dropdown">
                     <button class="lang-dropbtn">
@@ -43,17 +54,12 @@
             </nav>
 
             <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-                <i class="fas fa-bars"></i>  <i class="fas fa-times"></i> </button>
+                <i class="fas fa-bars"></i>  <i class="fas fa-times"></i> 
+            </button>
 
-		</div>
-	</header>
-    <main style="padding: 4rem 0; height: 200vh;">
-        <div class="container">
-            <h1>Page Content Area</h1>
-            <p>Please scroll up and down to test the 'sticky' effect of the navigation bar.</p>
-            <p>Please also resize your browser window to test if the RWD hamburger menu works correctly.</p>
         </div>
-    </main>
-
-</body>
-</html>
+    </header>
+    
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
