@@ -1175,6 +1175,42 @@ a.contact-card:hover .contact-icon-box {
     color: var(--color-text);
     border-color: var(--color-border);
 }
+/* 個人網頁 (使用主題色) */
+.btn-website {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-website:hover {
+    background-color: transparent;
+    color: var(--color-primary);
+}
+
+/* Kaggle 品牌色 */
+.btn-kaggle {
+    background-color: #20BEFF;
+    color: #ffffff;
+    border: 2px solid #20BEFF;
+}
+
+.btn-kaggle:hover {
+    background-color: transparent;
+    color: #20BEFF;
+}
+
+/* Medium 品牌色 */
+.btn-medium {
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #000000;
+}
+
+.btn-medium:hover {
+    background-color: transparent;
+    color: var(--color-text);
+    border-color: var(--color-border);
+}
 
 /* ===== 頁尾區塊 (Footer) ===== */
 .footer {
